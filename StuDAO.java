@@ -11,7 +11,7 @@ import java.util.List;
 
 public class StuDAO implements DAO {
 
-	// ππ‘Ï∆˜÷–ÕÍ≥…«˝∂Ø
+	// ÊûÑÈÄ†Âô®‰∏≠ÂÆåÊàêÈ©±Âä®
 	public StuDAO() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -21,10 +21,10 @@ public class StuDAO implements DAO {
 		}
 	}
 
-	// µ√µΩ¡¨Ω”µƒ∑Ω∑®:
+	// ÂæóÂà∞ËøûÊé•ÁöÑÊñπÊ≥ï:
 	public Connection getConnection() throws SQLException {
-		return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306" + "/how2java?characterEncoding=UTF-8", "root",
-				"admin");
+		return DriverManager.getConnection("jdbc:mysql://139.199.105.214:3306" + "/student?characterEncoding=UTF-8", "test",
+				"123abc");
 	}
 
 	@Override
@@ -33,7 +33,7 @@ public class StuDAO implements DAO {
 		String sql = "insert into stu values(null,?,?,?,?,?,?,?,?,?,?)";
 		try (Connection c = getConnection(); PreparedStatement ps = c.prepareStatement(sql)) {
 			ps.setString(1, stu.name);
-			ps.setLong(2, stu.qq);
+			ps.setString(2, stu.qq);
 			ps.setString(3, stu.type);
 			ps.setString(4, stu.enrolltime);
 			ps.setString(5, stu.school);
@@ -61,7 +61,7 @@ public class StuDAO implements DAO {
 				+ "school=?, onlinenumber=?, reportURL=?, swearword=?, shixiong=?," + "fromwhere=? where id=?";
 		try (Connection c = getConnection(); PreparedStatement ps = c.prepareStatement(sql)) {
 			ps.setString(1, stu.name);
-			ps.setLong(2, stu.qq);
+			ps.setString(2, stu.qq);
 			ps.setString(3, stu.type);
 			ps.setString(4, stu.enrolltime);
 			ps.setString(5, stu.school);
@@ -103,7 +103,7 @@ public class StuDAO implements DAO {
 			if (rs.next()) {
 				stu = new Stu();
 				String name = rs.getString(2);
-				long qq = rs.getLong(3);
+				String qq = rs.getString(3);
 				String type = rs.getString(4);
 				String enrolltime = rs.getString(5);
 				String school = rs.getString(6);
@@ -145,7 +145,7 @@ public class StuDAO implements DAO {
 				Stu stu = new Stu();
 				int id = rs.getInt(1);
 
-				long qq = rs.getLong(3);
+				String qq = rs.getString(3);
 				String type = rs.getString(4);
 				String enrolltime = rs.getString(5);
 				String school = rs.getString(6);
@@ -194,7 +194,7 @@ public class StuDAO implements DAO {
 				Stu stu = new Stu();
 				int id = rs.getInt(1);
 				String name = rs.getString(2);
-				long qq = rs.getLong(3);
+				String qq = rs.getString(3);
 				String type = rs.getString(4);
 				String enrolltime = rs.getString(5);
 				String school = rs.getString(6);
