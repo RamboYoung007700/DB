@@ -1,28 +1,35 @@
 package date;
 
-public class TestStuDAO {
-	public static void main(String[] args) {
-		Stu stu=new Stu("张三11","34243243","JAVA工程师","2018.3.20","家里蹲",
-				2343,"http://xxxxx.com","必胜必胜！","李四师兄","知乎看到");
-		StuDAO sd=new StuDAO();
-		sd.add(stu);
-		sd.add(stu);
-		sd.add(stu);
-		sd.add(stu);
-		System.out.println(stu.id);
-		stu=new Stu("张三12","34243243","JAVA工程师","2018.3.20","家里蹲",
-				2343,"http://xxxxx.com","必胜必胜！","李四师兄","知乎看到");
-		sd.add(stu);
-		sd.add(stu);
-		sd.add(stu);
-		sd.add(stu);
-
-		stu.name="新的张三";
-		sd.update(stu);
-		System.out.println(stu);
-		sd.delete(3);
-		System.out.println(sd.GetFromName("张三11"));
-		System.out.println(sd.GetFromName("张三12"));
-		System.out.println(sd.list());
+public class Stu {
+	int id;
+	String name;
+	String qq;
+	String type;
+	String enrolltime;
+	String school;
+	int onlinenumber;
+	String reportURL;
+	String swearword;
+	String shixiong;
+	String fromwhere;
+	public Stu() {}
+	public Stu(String name,String qq,String type,String enrolltime,String school,
+			int onlinenumber,String reportURL,String swearword,String shixiong,
+			String fromwhere) {
+		this.name=name;
+		this.qq=qq;
+		this.type=type;
+		this.enrolltime=enrolltime;
+		this.school=school;
+		this.onlinenumber=onlinenumber;
+		this.reportURL=reportURL;
+		this.swearword=swearword;
+		this.shixiong=shixiong;
+		this.fromwhere=fromwhere;
 	}
+	
+	public String toString() {
+		return id+"号: "+name+" qq: "+qq+" 报名类型： "+type+" 预计入学时间: "+enrolltime;
+	}
+	
 }
