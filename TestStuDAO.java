@@ -2,17 +2,27 @@ package date;
 
 public class TestStuDAO {
 	public static void main(String[] args) {
-		Stu stu=new Stu("ÕÅÈı11",243243,"JAVA¹¤³ÌÊ¦","2018.3.20","¼ÒÀï¶×",
-				2343,"http://xxxxx.com","±ØÊ¤±ØÊ¤£¡","ÀîËÄÊ¦ĞÖ","Öªºõ¿´µ½");
+		Stu stu=new Stu("å¼ ä¸‰11","34243243","JAVAå·¥ç¨‹å¸ˆ","2018.3.20","å®¶é‡Œè¹²",
+				2343,"http://xxxxx.com","å¿…èƒœå¿…èƒœï¼","æå››å¸ˆå…„","çŸ¥ä¹çœ‹åˆ°");
 		StuDAO sd=new StuDAO();
 		sd.add(stu);
+		sd.add(stu);
+		sd.add(stu);
+		sd.add(stu);
 		System.out.println(stu.id);
-		
-		stu.name="ĞÂµÄÕÅÈı";
+		stu=new Stu("å¼ ä¸‰12","34243243","JAVAå·¥ç¨‹å¸ˆ","2018.3.20","å®¶é‡Œè¹²",
+				2343,"http://xxxxx.com","å¿…èƒœå¿…èƒœï¼","æå››å¸ˆå…„","çŸ¥ä¹çœ‹åˆ°");
+		sd.add(stu);
+		sd.add(stu);
+		sd.add(stu);
+		sd.add(stu);
+
+		stu.name="æ–°çš„å¼ ä¸‰";
 		sd.update(stu);
 		System.out.println(stu);
 		sd.delete(3);
-		System.out.println(sd.GetFromName("ÕÅÈı11"));
+		System.out.println(sd.GetFromName("å¼ ä¸‰11"));
+		System.out.println(sd.GetFromName("å¼ ä¸‰12"));
 		System.out.println(sd.list());
 	}
 }
